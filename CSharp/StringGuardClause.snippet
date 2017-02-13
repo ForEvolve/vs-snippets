@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>StringGuardClause</Title>
+      <Author>Carl-Hugo Marcotte</Author>
+      <Description>Create a guard clause for an injected string dependency.</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>sguard</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object Editable="true">
+          <ID>paramName</ID>
+          <ToolTip>The param name to add a guard clause for.</ToolTip>
+          <Default>paramName</Default>
+          <Function>
+          </Function>
+          <Type>
+          </Type>
+        </Object>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[if (string.IsNullOrWhiteSpace($paramName$)) { throw new ArgumentNullException(nameof($paramName$)); }
+$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
