@@ -7,10 +7,10 @@
       </SnippetTypes>
       <Title>GuardClause</Title>
       <Author>Carl-Hugo Marcotte</Author>
-      <Description>Create a guard clause for an injected dependency using the new 2017 construct.</Description>
+      <Description>Create a guard clause for an injected dependency.</Description>
       <HelpUrl>
       </HelpUrl>
-      <Shortcut>guard</Shortcut>
+      <Shortcut>old-guard</Shortcut>
     </Header>
     <Snippet>
       <Imports>
@@ -29,7 +29,7 @@
           </Type>
         </Object>
       </Declarations>
-      <Code Language="csharp" Delimiter="$"><![CDATA[_$paramName$ = $paramName$ ?? throw new ArgumentNullException(nameof($paramName$));
+      <Code Language="csharp" Delimiter="$"><![CDATA[if ($paramName$ == null) { throw new ArgumentNullException(nameof($paramName$)); }
 $end$]]></Code>
     </Snippet>
   </CodeSnippet>

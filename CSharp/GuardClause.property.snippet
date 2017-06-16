@@ -10,7 +10,7 @@
       <Description>Create a guard clause for an injected dependency using the new 2017 construct.</Description>
       <HelpUrl>
       </HelpUrl>
-      <Shortcut>guard</Shortcut>
+      <Shortcut>pguard</Shortcut>
     </Header>
     <Snippet>
       <Imports>
@@ -21,15 +21,20 @@
       <Declarations>
         <Object Editable="true">
           <ID>paramName</ID>
-          <ToolTip>The param name to adda guard clause for.</ToolTip>
+          <ToolTip>The param name to add a guard clause for.</ToolTip>
           <Default>paramName</Default>
-          <Function>
-          </Function>
-          <Type>
-          </Type>
+          <Function></Function>
+          <Type></Type>
+        </Object>
+        <Object Editable="true">
+          <ID>propName</ID>
+          <ToolTip>The property name to assign the guarded arguement to.</ToolTip>
+          <Default>propName</Default>
+          <Function></Function>
+          <Type></Type>
         </Object>
       </Declarations>
-      <Code Language="csharp" Delimiter="$"><![CDATA[_$paramName$ = $paramName$ ?? throw new ArgumentNullException(nameof($paramName$));
+      <Code Language="csharp" Delimiter="$"><![CDATA[$propName$ = $paramName$ ?? throw new ArgumentNullException(nameof($paramName$));
 $end$]]></Code>
     </Snippet>
   </CodeSnippet>
