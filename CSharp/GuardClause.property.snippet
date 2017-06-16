@@ -5,7 +5,7 @@
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
-      <Title>GuardClause</Title>
+      <Title>GuardClause (property)</Title>
       <Author>Carl-Hugo Marcotte</Author>
       <Description>Create a guard clause for an injected dependency using the new 2017 construct.</Description>
       <HelpUrl>
@@ -34,8 +34,7 @@
           <Type></Type>
         </Object>
       </Declarations>
-      <Code Language="csharp" Delimiter="$"><![CDATA[$propName$ = $paramName$ ?? throw new ArgumentNullException(nameof($paramName$));
-$end$]]></Code>
+      <Code Language="csharp" Delimiter="$"><![CDATA[$propName$ = $paramName$ ?? throw new ArgumentNullException(nameof($paramName$));$end$]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
