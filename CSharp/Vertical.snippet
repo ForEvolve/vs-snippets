@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Vertical Command</Title>
+      <Author>Carl-Hugo Marcotte</Author>
+      <Description><![CDATA[
+        Creates all classes needed for a vertical slice command scenario using MediatR, FluentValidation, AutoMapper, and ForEvolve.OperationResults.
+        This snippet should be generated inside an existing and empty "use case class"; ex.: `public class CreateSomeEntity{ /* Use this snippet here */ }`.]]></Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>vcommand</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object Editable="true">
+          <ID>modelName</ID>
+          <ToolTip>The model class that will be persisted.</ToolTip>
+          <Default>modelName</Default>
+          <Function>
+          </Function>
+          <Type>
+          </Type>
+        </Object>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[public class Input
+        {
+            // TODO: add the input properties
+            // This is the DTO that should be bound in the controller action, from the request body
+            // If the Input and Command are the same, you could consider keeping only the Command class.
+            $end$
+        }
+
+        public class Command : IRequest<IOperationResult<Result>>
+        {
+            // TODO: add the command properties
+        }
+
+        public class Result
+        {
+            // TODO: add the result properties
+        }
+
+        public class MapperProfile : Profile
+        {
+            public MapperProfile()
+            {
+                CreateMap<Input, Command>();
+                CreateMap<Command, $modelName$>();
+                CreateMap<$modelName$, Result>();
+            }
+        }
+
+        public class Validator : AbstractValidator<Command>
+        {
+            public Validator()
+            {
+                // TODO: add the Command validation
+            }
+        }
+
+        public class Handler : IRequestHandler<Command, IOperationResult<Result>>
+        {
+            public Task<IOperationResult<Result>> Handle(Command request, CancellationToken cancellationToken)
+            {
+                //TODO: add the use case logic
+                throw new NotImplementedException();
+            }
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Vertical Query Command</Title>
+      <Author>Carl-Hugo Marcotte</Author>
+      <Description><![CDATA[
+        Creates all classes needed for a vertical slice query command scenario using MediatR, FluentValidation, AutoMapper, and ForEvolve.OperationResults.
+        This snippet should be generated inside an existing and empty "use case class"; ex.: `public class GetSomeEntity { /* Use this snippet here */ }`.]]></Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>vquery</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object Editable="true">
+          <ID>modelName</ID>
+          <ToolTip>The model class that will be persisted.</ToolTip>
+          <Default>modelName</Default>
+          <Function>
+          </Function>
+          <Type>
+          </Type>
+        </Object>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[public class Command : IRequest<IOperationResult<Result>>
+        {
+            // TODO: add the command properties
+        }
+
+        public class Result
+        {
+            // TODO: add the result properties
+        }
+
+        public class MapperProfile : Profile
+        {
+            public MapperProfile()
+            {
+                CreateMap<Command, $modelName$>();
+                CreateMap<$modelName$, Result>();
+            }
+        }
+
+        public class Validator : AbstractValidator<Command>
+        {
+            public Validator()
+            {
+                // TODO: add the Command validation
+            }
+        }
+
+        public class Handler : IRequestHandler<Command, IOperationResult<Result>>
+        {
+            public Task<IOperationResult<Result>> Handle(Command request, CancellationToken cancellationToken)
+            {
+                //TODO: add the use case logic
+                throw new NotImplementedException();
+            }
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
