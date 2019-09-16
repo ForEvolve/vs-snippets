@@ -4,7 +4,7 @@
 
 ### ArrangeActAssert
 
-By typing `a` + `TAB` + `TAB` (or `aaa` + `TAB` for long) you end up with an empty failing test method.
+By typing `a` + `TAB` + `TAB` (or `aaa` + `TAB` for long) you end up with an empty failing test method body.
 
 ```CSharp
 // Arrange
@@ -15,6 +15,47 @@ $end$
 
 // Assert
 throw new NotImplementedException();
+```
+
+### XUnitFact
+
+By typing `fa` + `TAB` + `TAB` (or `fact` + `TAB` for long) you end up with an empty failing test method.
+
+The part `be_a_test_case` is selected and ready to be renamed.
+Once you renamed your test method and pressed `Enter`, the cursor jump under `// Arrange` to keep it as productive as possible.
+
+```csharp
+[Fact]
+public void Should_be_a_test_case()
+{
+    // Arrange
+
+
+    // Act
+
+
+    // Assert
+    throw new NotImplementedException();
+}
+```
+
+For an `async` test case, by typing `af` + `TAB` + `TAB` (or `afact` + `TAB` for long) you end up with an empty failing test method that return an `async Task`. 
+
+The same selection/cursor location behaviors applies.
+
+```csharp
+[Fact]
+public async Task Should_be_a_test_case()
+{
+    // Arrange
+
+
+    // Act
+
+
+    // Assert
+    throw new NotImplementedException();
+}
 ```
 
 ### GuardClause (field)
