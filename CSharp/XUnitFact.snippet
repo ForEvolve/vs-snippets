@@ -6,12 +6,9 @@
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
       <Title>XUnitFact</Title>
-      <Author>
-      </Author>
-      <Description>
-      </Description>
-      <HelpUrl>
-      </HelpUrl>
+      <Author>Carl-Hugo Marcotte</Author>
+      <Description>An empty xUnit [Fact] test method, including AAA comments.</Description>
+      <HelpUrl>https://github.com/ForEvolve/vs-snippets</HelpUrl>
       <Shortcut>fact</Shortcut>
     </Header>
     <Snippet>
@@ -26,6 +23,42 @@
       </Declarations>
       <Code Language="csharp" Delimiter="$"><![CDATA[[Fact]
 public void Should_$methodName$()
+{
+    // Arrange
+    $end$
+
+    // Act
+
+
+    // Assert
+    throw new NotImplementedException();
+}
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>XUnitFactAsync</Title>
+      <Author>Carl-Hugo Marcotte</Author>
+      <Description>An empty async xUnit [Fact] test method, including AAA comments.</Description>
+      <HelpUrl>https://github.com/ForEvolve/vs-snippets</HelpUrl>
+      <Shortcut>afact</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>methodName</ID>
+          <ToolTip>Name of the test method.</ToolTip>
+          <Default>be_a_test_case</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[[Fact]
+public async Task Should_$methodName$()
 {
     // Arrange
     $end$
