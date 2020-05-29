@@ -39,7 +39,7 @@ public void Should_be_a_test_case()
 }
 ```
 
-For an `async` test case, by typing `af` + `TAB` + `TAB` (or `afact` + `TAB` for long) you end up with an empty failing test method that return an `async Task`. 
+For an `async` test case, by typing `af` + `TAB` + `TAB` (or `afact` + `TAB` for long) you end up with an empty failing test method that return an `async Task`.
 
 The same selection/cursor location behaviors applies.
 
@@ -132,6 +132,81 @@ public void Should_be_tested()
     throw new NotImplementedException();
 }
 ```
+
+### Vertical Slice Architecture
+
+Here are a few snippets that works great when implementing a Vertical Slice using the AutoMapper, FluentValidation, and MediatR stack.
+
+All of those snippets should be used inside another class like:
+
+```csharp
+public class MyUseCaseOrMyRazorPage
+{
+    use the snippet here
+}
+```
+
+#### Vertical Command (no return value)
+
+Creates all of the classes that are needed for a vertical slice command scenario (that does not return a value).
+
+Generated classes:
+
+- Command
+- MapperProfile
+- Validator
+- Handler
+
+#### Vertical Command with a return value
+
+Creates all of the classes that are needed for a vertical slice command scenario that returns a value.
+
+Generated classes:
+
+- Command
+- Result
+- MapperProfile
+- Validator
+- Handler
+
+#### Vertical Query
+
+Creates all of the classes that are needed for a vertical slice query scenario.
+
+Generated classes:
+
+- Query
+- Result
+- MapperProfile
+- Validator
+- Handler
+
+#### Vertical Razor Pages Form (Query and Command)
+
+Creates all of the classes that are needed for a vertical slice query and command scenario inside a Razor Page (like an Edit page).
+
+Generated classes:
+
+- Query
+- Command
+- CommandResult
+- MapperProfile
+- QueryValidator
+- CommandValidator
+- QueryHandler
+- CommandHandler
+
+#### Vertical Razor Pages Query-only
+
+Creates all of the classes that are needed for a vertical slice query-only scenario inside a Razor Page (like an Index page).
+
+Generated classes:
+
+- Query
+- Result
+- MapperProfile
+- Validator
+- Handler
 
 ## JavaScript Snippets
 

@@ -7,9 +7,16 @@
       </SnippetTypes>
       <Title>Vertical Command (no return value)</Title>
       <Author>Carl-Hugo Marcotte</Author>
-      <Description><![CDATA[
-        Creates all classes needed for a vertical slice command scenario (that does not return a value) using MediatR, FluentValidation, and AutoMapper.
-        This snippet should be generated inside an existing and empty "use case class"; ex.: `public class DeleteSomeEntity{ /* Use this snippet here */ }`.]]></Description>
+      <Description><![CDATA[Creates all of the classes that are needed for a vertical slice command scenario (that does not return a value).
+
+This snippet requires AutoMapper, FluentValidation, and MediatR and must be used inside another class, like:
+
+```csharp
+public class MyUseCaseOrMyRazorPage
+{
+    use the snippet here
+}
+```]]></Description>
       <HelpUrl>
       </HelpUrl>
       <Shortcut>vplaincommand</Shortcut>
@@ -37,7 +44,7 @@
       </Imports>
       <Code Language="csharp" Delimiter="$"><![CDATA[public class Command : IRequest
         {
-            // TODO: add the command properties
+            // TODO: add the command properties$end$
         }
 
         public class MapperProfile : Profile
@@ -73,9 +80,16 @@
       </SnippetTypes>
       <Title>Vertical Command (with a return value)</Title>
       <Author>Carl-Hugo Marcotte</Author>
-      <Description><![CDATA[
-        Creates all classes needed for a vertical slice command scenario using MediatR, FluentValidation, and AutoMapper.
-        This snippet should be generated inside an existing and empty "use case class"; ex.: `public class CreateSomeEntity { /* Use this snippet here */ }`.]]></Description>
+      <Description><![CDATA[Creates all of the classes that are needed for a vertical slice command scenario that returns a value.
+
+This snippet requires AutoMapper, FluentValidation, and MediatR and must be used inside another class, like:
+
+```csharp
+public class CreateSomething
+{
+    use the snippet here
+}
+```]]></Description>
       <HelpUrl>
       </HelpUrl>
       <Shortcut>vcommand</Shortcut>
@@ -114,7 +128,7 @@
       </Declarations>
       <Code Language="csharp" Delimiter="$"><![CDATA[public class Command : IRequest<Result>
         {
-            // TODO: add the command properties
+            // TODO: add the command properties$end$
         }
 
         public class Result
@@ -156,9 +170,16 @@
       </SnippetTypes>
       <Title>Vertical Razor Pages Form (Query and Command)</Title>
       <Author>Carl-Hugo Marcotte</Author>
-      <Description><![CDATA[
-        Creates all classes needed for a vertical slice Razor Page query and command scenario using MediatR, FluentValidation, and AutoMapper (like an Edit page).
-        This snippet should be generated inside an existing Razor Page; ex.: `public class Edit : PageModel { /* Use this snippet here */ }`.]]></Description>
+      <Description><![CDATA[Creates all of the classes that are needed for a vertical slice query and command scenario inside a Razor Page (like an Edit page).
+
+This snippet requires AutoMapper, FluentValidation, and MediatR and must be used inside another class, like:
+
+```csharp
+public class Edit : PageModel
+{
+    use the snippet here
+}
+```]]></Description>
       <HelpUrl>
       </HelpUrl>
       <Shortcut>vrazorform</Shortcut>
@@ -186,15 +207,15 @@
       </Imports>
       <Code Language="csharp" Delimiter="$"><![CDATA[public class Query : IRequest<Command>
         {
-            // TODO: add the query properties (GET)
+            // TODO: add the query properties (GET)$end$
         }
 
-        public class Command : IRequest<Result>
+        public class Command : IRequest<CommandResult>
         {
             // TODO: add the command properties (the Form/POST)
         }
 
-        public class Result
+        public class CommandResult
         {
             // TODO: add the result properties
         }
@@ -207,17 +228,17 @@
             }
         }
 
-        public class CommandValidator : AbstractValidator<Command>
+        public class QueryValidator : AbstractValidator<Query>
         {
-            public CommandValidator()
+            public QueryValidator()
             {
                 // TODO: add the Command validation
             }
         }
 
-        public class QueryValidator : AbstractValidator<Query>
+        public class CommandValidator : AbstractValidator<Command>
         {
-            public QueryValidator()
+            public CommandValidator()
             {
                 // TODO: add the Command validation
             }
@@ -232,9 +253,9 @@
             }
         }
 
-        public class CommandHandler : IRequestHandler<Command, Result>
+        public class CommandHandler : IRequestHandler<Command, CommandResult>
         {
-            public Task<Result> Handle(Command request, CancellationToken cancellationToken)
+            public Task<CommandResult> Handle(Command request, CancellationToken cancellationToken)
             {
                 //TODO: add the POST use case logic
                 throw new NotImplementedException();
@@ -249,9 +270,16 @@
       </SnippetTypes>
       <Title>Vertical Razor Pages Query-only</Title>
       <Author>Carl-Hugo Marcotte</Author>
-      <Description><![CDATA[
-        Creates all classes needed for a vertical slice Razor Page query-only scenario using MediatR, FluentValidation, and AutoMapper (like a list/the index page).
-        This snippet should be generated inside an existing Razor Page; ex.: `public class Index : PageModel { /* Use this snippet here */ }`.]]></Description>
+      <Description><![CDATA[Creates all of the classes that are needed for a vertical slice query-only scenario inside a Razor Page (like an Index page).
+
+This snippet requires AutoMapper, FluentValidation, and MediatR and must be used inside another class, like:
+
+```csharp
+public class Index : PageModel
+{
+    use the snippet here
+}
+```]]></Description>
       <HelpUrl>
       </HelpUrl>
       <Shortcut>vrazorpage</Shortcut>
@@ -279,7 +307,7 @@
       </Imports>
       <Code Language="csharp" Delimiter="$"><![CDATA[public class Query : IRequest<Result>
         {
-            // TODO: add the query properties (GET)
+            // TODO: add the query properties (GET)$end$
         }
 
         public class Result
@@ -308,6 +336,84 @@
             public Task<Result> Handle(Query request, CancellationToken cancellationToken)
             {
                 //TODO: add the GET use case logic
+                throw new NotImplementedException();
+            }
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Vertical Query</Title>
+      <Author>Carl-Hugo Marcotte</Author>
+      <Description><![CDATA[Creates all of the classes that are needed for a vertical slice query scenario.
+
+This snippet requires AutoMapper, FluentValidation, and MediatR and must be used inside another class, like:
+
+```csharp
+public class ListAllSomeEntity
+{
+    use the snippet here
+}
+```]]></Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>vquery</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>AutoMapper</Namespace>
+        </Import>
+        <Import>
+          <Namespace>FluentValidation</Namespace>
+        </Import>
+        <Import>
+          <Namespace>MediatR</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Threading</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp" Delimiter="$"><![CDATA[public class Query : IRequest<Result>
+        {
+            // TODO: add the query properties$end$
+        }
+
+        public class Result
+        {
+            // TODO: add the result properties
+        }
+
+        public class MapperProfile : Profile
+        {
+            public MapperProfile()
+            {
+                // TODO: Create mapping or delete this class
+            }
+        }
+
+        public class Validator : AbstractValidator<Query>
+        {
+            public Validator()
+            {
+                // TODO: add the Command validation
+            }
+        }
+
+        public class Handler : IRequestHandler<Query, Result>
+        {
+            public Task<Result> Handle(Query request, CancellationToken cancellationToken)
+            {
+                //TODO: add the use case logic
                 throw new NotImplementedException();
             }
         }]]></Code>
