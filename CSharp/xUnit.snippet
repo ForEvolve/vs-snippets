@@ -12,6 +12,14 @@
       <Shortcut>fact</Shortcut>
     </Header>
     <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
       <Declarations>
         <Literal Editable="true">
           <ID>methodName</ID>
@@ -33,7 +41,7 @@ public void Should_$methodName$()
     // Assert
     throw new NotImplementedException();
 }
-]]></Code>
+]]>      </Code>
     </Snippet>
   </CodeSnippet>
   <CodeSnippet Format="1.0.0">
@@ -48,6 +56,14 @@ public void Should_$methodName$()
       <Shortcut>afact</Shortcut>
     </Header>
     <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
       <Declarations>
         <Literal Editable="true">
           <ID>methodName</ID>
@@ -69,7 +85,67 @@ public async Task Should_$methodName$()
     // Assert
     throw new NotImplementedException();
 }
-]]></Code>
+]]>      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>ShouldBeTested</Title>
+      <Author>Carl-Hugo Marcotte</Author>
+      <Description>Create a failing XUnit test method named Should_be_tested.</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>sbt</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp" Delimiter="$"><![CDATA[[Fact]$end$
+public void Should_be_tested()
+{
+    throw new NotImplementedException();
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>ArrangeActAssert</Title>
+      <Author>Carl-Hugo Marcotte</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>aaa</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp" Delimiter="$"><![CDATA[// Arrange
+$end$
+
+// Act
+
+
+// Assert
+throw new NotImplementedException();]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
